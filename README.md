@@ -5,7 +5,7 @@ A sample HTML/CSS/JavaScript project created as a practice project for learning 
 ## 🌐 Live Demo
 
 **GitHub Pages:**
-`[https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/](https://frost-as.github.io/Sida-Sample/)`
+[[https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/](https://frost-as.github.io/Sida-Sample)](https://frost-as.github.io/Sida-Sample/)
 
 ## 📌 About
 
