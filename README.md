@@ -5,9 +5,7 @@ A sample HTML/CSS/JavaScript project created as a practice project for learning 
 ## 🌐 Live Demo
 
 **GitHub Pages:**
-`https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/`
-
-> Replace the URL above with your actual GitHub Pages URL.
+`[https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/](https://frost-as.github.io/Sida-Sample/)`
 
 ## 📌 About
 
@@ -69,4 +67,4 @@ This project is provided for learning and personal development purposes.
 
 ---
 
-Made with HTML, CSS & JavaScript ❤️
+Made with ❤️ by Frost AS
