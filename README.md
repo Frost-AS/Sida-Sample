@@ -52,7 +52,9 @@ You can also use **VS Code + Live Server** for local development.
 SIDA/
 ├── index.html
 ├── README.md
+├── Assets/...
 └── ...
+
 ```
 
 ## 📖 Purpose
