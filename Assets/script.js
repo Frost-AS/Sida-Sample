@@ -1141,3 +1141,15 @@ claerStoragebtn.addEventListener("click",()=>{
     changelogsmodalbts.hide();
     clearStorage();
 });
+
+
+// The clear button in change-logs function
+const clearbtninmodal = document.getElementById("clearbtninmodal");
+clearbtninmodal.addEventListener("click",()=>{
+    changelogsmodalbts.hide();
+    let resetBtn = document.getElementById("resetBtn");
+    resetBtn.classList.toggle("resetbtnactive");
+    setTimeout(()=>{
+        resetBtn.classList.toggle("resetbtnactive");
+    },3000);
+});

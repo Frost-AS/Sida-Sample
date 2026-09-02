@@ -400,3 +400,9 @@ footer {
 .modal-icon{
   font-size: 70px;
 }
+
+.resetbtnactive{
+  border: 5px dotted green;
+  background-color: #ef8791;
+  color: white;
+}
