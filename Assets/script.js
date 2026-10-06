@@ -264,6 +264,124 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         // =====================================================
+        // SIDEBAR CATEGORY ITEMS
+        // =====================================================
+        //
+        // Submenu indexing above only sees `.submenu-list > li`.
+        // Category titles with no submenu (e.g. "هدایت تحصیلی")
+        // were never added to the index.
+        // Also index every `.menuitem` title so those labels
+        // are searchable on their own.
+        // -----------------------------------------------------
+
+        document
+            .querySelectorAll(
+                "ul.menulists > li > .menuitem"
+            )
+            .forEach((categoryEl) => {
+
+                const leafLi =
+                    categoryEl.closest("li");
+
+
+                const categoryText =
+                    categoryEl
+                        .querySelector("span")
+                        ?.textContent
+                        .trim() || "";
+
+
+                if (!categoryText) {
+                    return;
+                }
+
+
+                const categoryCollapse =
+                    leafLi.querySelector(
+                        ":scope > .collapse[id]"
+                    );
+
+
+                const sectionCollapse =
+                    categoryEl.closest(
+                        ".collapse[id]"
+                    );
+
+
+                const sectionId =
+                    sectionCollapse?.id;
+
+
+                const sectionBtn =
+                    sectionId
+                        ? document.querySelector(
+                            `.menubutton[data-bs-target="#${sectionId}"]`
+                        )
+                        : null;
+
+
+                const sectionText =
+                    sectionBtn
+                        ?.querySelector("p")
+                        ?.textContent
+                        .trim() || "";
+
+
+                const customSearch =
+                    categoryEl.getAttribute(
+                        "data-search"
+                    ) ||
+                    leafLi.getAttribute(
+                        "data-search"
+                    ) ||
+                    "";
+
+
+                const searchText =
+                    normalizeText(
+                        [
+                            sectionText,
+                            categoryText,
+                            customSearch
+                        ].join(" ")
+                    );
+
+
+                items.push({
+
+                    type: "sidebar",
+
+                    leafText: categoryText,
+
+                    searchText,
+
+                    path: [
+                        sectionText,
+                        categoryText
+                    ].filter(Boolean),
+
+                    els: {
+
+                        sectionBtn,
+
+                        sectionCollapse,
+
+                        categoryEl,
+
+                        categoryCollapse,
+
+                        leafLi: categoryEl,
+
+                        targetCollapse: null
+
+                    }
+
+                });
+
+            });
+
+
+        // =====================================================
         // MAIN CONTENT COLLAPSES
         // =====================================================
 
