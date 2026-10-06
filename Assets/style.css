@@ -90,6 +90,9 @@ li.nav-item:hover > a{
 .rtl {
   direction: rtl;
 }
+.ltr{
+  direction: ltr;
+}
 
 .toast-animated {
   border: none;
