@@ -1271,3 +1271,12 @@ clearbtninmodal.addEventListener("click",()=>{
         resetBtn.classList.toggle("resetbtnactive");
     },3000);
 });
+
+    // =========================================================
+    // Course Selection Discrepancy Report
+    // =========================================================
+
+let courserep = document.getElementById("courserep");
+courserep.addEventListener('click',()=>{
+    PrintToast("گزارش مغایرت انتخاب واحد در متوسطه دوم نظری فعال شده است و در بقیه مقاطع به‌زودی فعال می‌گردد.",3000);
+});
