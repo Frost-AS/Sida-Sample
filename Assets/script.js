@@ -1280,3 +1280,36 @@ let courserep = document.getElementById("courserep");
 courserep.addEventListener('click',()=>{
     PrintToast("گزارش مغایرت انتخاب واحد در متوسطه دوم نظری فعال شده است و در بقیه مقاطع به‌زودی فعال می‌گردد.",3000);
 });
+
+
+    // =========================================================
+    // File Download Fetch status
+    // =========================================================
+
+document.querySelectorAll("#dlmodal .dl-link").forEach((link) => {
+    link.addEventListener("click", async (event) => {
+      event.preventDefault();
+  
+      try {
+        const response = await fetch(link.href, { method: "HEAD" });
+  
+        if (!response.ok) {
+          PrintToast("فایل پیدا نشد!", 3000);
+          console.error("File could not be fetched on the address!");
+          return;
+        }
+        else{
+            PrintToast2("test", 3000);
+        }
+      } catch {
+        PrintToast("فایل پیدا نشد!", 3000);
+        console.error("File could not be fetched on the address!");
+        return;
+      }
+  
+      const a = document.createElement("a");
+      a.href = link.href;
+      a.download = link.getAttribute("download") || "";
+      a.click();
+    });
+  });
