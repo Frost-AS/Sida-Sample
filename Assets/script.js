@@ -1298,9 +1298,6 @@ document.querySelectorAll("#dlmodal .dl-link").forEach((link) => {
           console.error("File could not be fetched on the address!");
           return;
         }
-        else{
-            PrintToast2("test", 3000);
-        }
       } catch {
         PrintToast("فایل پیدا نشد!", 3000);
         console.error("File could not be fetched on the address!");
