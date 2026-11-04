@@ -71,6 +71,128 @@ li.nav-item:hover > a{
   color: var(--bs-blue) !important;
 }
 
+#dlmodal .dl-modal-content {
+  border: 1px solid rgba(25, 135, 84, 0.45);
+  box-shadow: 0 0 22px rgba(25, 135, 84, 0.2);
+  overflow: hidden;
+}
+
+#dlmodal .dl-modal-header {
+  border-bottom: 1px solid rgba(25, 135, 84, 0.35);
+  background: linear-gradient(90deg, rgba(25, 135, 84, 0.18), transparent 70%);
+  padding: 0.75rem 1rem;
+}
+
+#dlmodal .dl-modal-header .modal-title {
+  color: #75b798;
+}
+
+#dlmodal .dl-close {
+  color: #75b798;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+#dlmodal .dl-close:hover {
+  color: var(--bs-success);
+  transform: scale(1.08);
+}
+
+#dlmodal .dl-section {
+  background: rgba(25, 135, 84, 0.06);
+  border: 1px solid rgba(25, 135, 84, 0.22);
+  border-radius: 0.6rem;
+  padding: 0.45rem 0.6rem;
+  margin-bottom: 0.65rem;
+}
+
+#dlmodal .dl-title,
+#dlmodal .dl-sub-title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #d1e7dd;
+  padding: 0.35rem 0.2rem;
+  margin: 0;
+  transition: color 0.25s ease;
+}
+
+#dlmodal .dl-title:hover,
+#dlmodal .dl-sub-title:hover {
+  color: var(--bs-success) !important;
+}
+
+#dlmodal .dl-caret {
+  display: inline-block;
+  color: var(--bs-success);
+  transition: transform 0.45s ease;
+}
+
+#dlmodal .dl-section:has(> .collapse.show) .dl-title,
+#dlmodal .dl-item:has(> .collapse.show) .dl-sub-title {
+  color: var(--bs-success) !important;
+}
+
+#dlmodal .dl-section:has(> .collapse.show) .dl-caret,
+#dlmodal .dl-item:has(> .collapse.show) .dl-caret {
+  transform: rotate(180deg);
+}
+
+#dlmodal .dl-item {
+  border-bottom: 1px dashed rgba(25, 135, 84, 0.25);
+  padding: 0.2rem 0;
+}
+
+#dlmodal .dl-item:last-child {
+  border-bottom: 0;
+}
+
+#dlmodal .dl-file-list {
+  list-style: none;
+  margin: 0.35rem 0 0.15rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+#dlmodal .dl-link {
+  color: #d1e7dd;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(25, 135, 84, 0.3);
+  background: rgba(17, 17, 27, 0.55);
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+#dlmodal .dl-file-icon {
+  color: var(--bs-success);
+  font-size: 1.15rem;
+}
+
+#dlmodal .dl-file-name {
+  flex: 1;
+  text-align: start;
+}
+
+#dlmodal .dl-file-action {
+  color: #75b798;
+  font-size: 0.95rem;
+}
+
+#dlmodal .dl-link:hover {
+  color: #fff;
+  background: rgba(25, 135, 84, 0.22);
+  border-color: var(--bs-success);
+}
+
+#dlmodal .dl-link:hover .dl-file-action {
+  color: #fff;
+}
+
 .cursor-pointer{
   cursor: pointer;
 }
