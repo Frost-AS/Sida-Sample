@@ -1,4 +1,4 @@
-# SIDA Project
+# SIDA Project v2.3
 
 A sample HTML/CSS/JavaScript project created as a practice project for learning how to publish a website on **GitHub** and make it accessible online using **GitHub Pages**.
 
