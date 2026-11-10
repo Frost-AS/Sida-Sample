@@ -4,17 +4,23 @@
 
 const LOADER_CONFIG = {
 
-    // Minimum loading time (milliseconds)
-    minDuration: 1500,
+    // Enable / Disable maintenance mode
+    maintenance: false,
 
-    // Maximum loading time (milliseconds)
-    maxDuration: 3500,
+    // Show maintenance screen at this percentage
+    maintenanceAt: 24,
 
-    // Update interval (milliseconds)
-    updateInterval: 20,
+    // Maintenance error code
+    errorCode: 528,
+
+    // Minimum loading duration (milliseconds)
+    minDuration: 3000,
+
+    // Maximum loading duration (milliseconds)
+    maxDuration: 5000,
 
     // Fade-out delay (milliseconds)
-    fadeOutDelay: 300,
+    fadeOutDelay: 300
 
 };
 
@@ -26,46 +32,74 @@ const LOADER_CONFIG = {
 document.addEventListener("DOMContentLoaded", () => {
 
     const loader = document.getElementById("pageLoader");
+    const normalLoader = document.getElementById("normalLoader");
+    const maintenanceScreen = document.getElementById("maintenanceScreen");
+
     const progressBar = document.getElementById("loaderProgress");
     const percentage = document.getElementById("loaderPercentage");
 
-    if (!loader || !progressBar || !percentage) return;
+    const errorCode = document.getElementById("maintenanceErrorCode");
+
+    if (!loader) return;
 
 
-    // Random duration between minimum and maximum
-    const duration =
-        Math.floor(
-            Math.random() *
-            (LOADER_CONFIG.maxDuration - LOADER_CONFIG.minDuration + 1)
-        ) + LOADER_CONFIG.minDuration;
+    // Set maintenance error code
+    errorCode.textContent = LOADER_CONFIG.errorCode;
 
 
-    let startTime = performance.now();
+    // Random loading duration
+    const duration = Math.floor(
+        Math.random() *
+        (LOADER_CONFIG.maxDuration - LOADER_CONFIG.minDuration + 1)
+    ) + LOADER_CONFIG.minDuration;
+
+
+    const maintenanceAt = Math.min(
+        100,
+        Math.max(0, LOADER_CONFIG.maintenanceAt)
+    );
+
+    const startTime = performance.now();
 
 
     function updateLoader(currentTime) {
 
         const elapsed = currentTime - startTime;
 
-        // Calculate progress
         let progress = Math.min(
             (elapsed / duration) * 100,
             100
         );
 
-        // Update Bootstrap progress bar
+
+        // =====================================
+        // MAINTENANCE MODE
+        // =====================================
+
+        if (LOADER_CONFIG.maintenance && progress >= maintenanceAt) {
+
+            progress = maintenanceAt;
+
+            progressBar.style.width = `${progress}%`;
+
+            percentage.textContent = `${progress}%`;
+
+            normalLoader.classList.add("d-none");
+            maintenanceScreen.classList.remove("d-none");
+
+            return;
+        }
+
+
+        // =====================================
+        // NORMAL LOADING
+        // =====================================
+
         progressBar.style.width = `${progress}%`;
 
-        progressBar.setAttribute(
-            "aria-valuenow",
-            Math.round(progress)
-        );
-
-        percentage.textContent =
-            `${Math.round(progress)}%`;
+        percentage.textContent = `${Math.round(progress)}%`;
 
 
-        // Finish loading
         if (progress >= 100) {
 
             percentage.textContent = "100%";
@@ -74,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 loader.classList.add("loader-hidden");
 
-                // Remove loader after fade animation
                 setTimeout(() => {
                     loader.remove();
                 }, 600);

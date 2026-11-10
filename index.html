@@ -19,15 +19,17 @@
 
     <!-- PAGE LOADER -->
     <div id="pageLoader" class="position-fixed top-0 start-0 w-100 h-100 d-flex
-       align-items-center justify-content-center" style="z-index: 99999;">
+           align-items-center justify-content-center">
 
-        <div class="loader-content text-center p-4">
+        <!-- NORMAL LOADER -->
+        <div id="normalLoader" class="loader-content text-center p-4">
 
             <i class="bi bi-server text-info loader-icon"></i>
 
-            <h5 class="text-white mt-3 mb-2">
-                سامانه یکپارچه دانش آموزی
-            </h5>
+            <h3 class="text-white mt-3 mb-2">
+                شبکه تحت وب اداری
+                <span class="badge bg-info">1739</span>
+            </h3>
 
             <p class="text-secondary small mb-4">
                 <span class="spinner-border spinner-border-sm text-primary"></span>
@@ -38,7 +40,7 @@
             <div class="progress ltr" style="height: 12px;">
 
                 <div id="loaderProgress" class="progress-bar progress-bar-striped
-                   progress-bar-animated bg-info" role="progressbar" style="width: 0%" aria-valuenow="0"
+                       progress-bar-animated bg-info" role="progressbar" style="width: 0%" aria-valuenow="0"
                     aria-valuemin="0" aria-valuemax="100">
                 </div>
 
@@ -46,7 +48,9 @@
 
             <div class="d-flex justify-content-between mt-2">
 
-                <small class="text-secondary">در حال بارگذاری...</small>
+                <small class="text-secondary">
+                    در حال بارگیری...
+                </small>
 
                 <strong id="loaderPercentage" class="text-info">
                     0%
@@ -54,11 +58,61 @@
 
             </div>
 
-            <div class="text-secondary">
-               
+            <div class="text-secondary fs-6 mt-3">
+                <i class="bi bi-code-square text-danger"></i>
+                توسعه و پیاده سازی توسط
+                <span class="badge bg-danger">آخاله</span>
             </div>
 
         </div>
+
+
+        <!-- MAINTENANCE SCREEN -->
+        <div id="maintenanceScreen" class="maintenance-content text-center p-4 d-none" dir="rtl">
+
+            <div class="maintenance-icon mb-4">
+                <i class="bi bi-tools"></i>
+            </div>
+
+            <h4 class="text-white fw-bold mb-3">
+                صفحه در حال بروزرسانی می‌باشد
+            </h4>
+
+            <p class="text-secondary mb-4">
+                سامانه در حال انجام عملیات بروزرسانی و بهینه‌سازی است.
+                لطفاً پس از مدتی مجدداً مراجعه فرمایید.
+            </p>
+
+            <!-- ERROR CODE -->
+            <div class="maintenance-error">
+
+                <span>
+                    <i class="bi bi-exclamation-triangle text-warning ms-1"></i>
+                    شماره خطا
+                </span>
+
+                <strong id="maintenanceErrorCode">
+                    528
+                </strong>
+
+            </div>
+
+            <div class="text-secondary small mt-4">
+                <i class="bi bi-code-square text-danger"></i>
+                توسعه و پیاده سازی توسط
+                <span class="badge bg-danger">آخاله</span>
+            </div>
+
+            <!-- RETRY -->
+            <button class="btn btn-outline-info mt-4 px-4" onclick="location.reload()">
+
+                <i class="bi bi-arrow-clockwise ms-1"></i>
+                تلاش مجدد
+
+            </button>
+
+        </div>
+
     </div>
 
     <!-- ========================================== -->

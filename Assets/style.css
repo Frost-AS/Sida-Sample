@@ -67,6 +67,132 @@
   }
 }
 
+/* =========================================
+   MAINTENANCE SCREEN
+========================================= */
+
+#pageLoader {
+  background: #11111b;
+  z-index: 99999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease,
+              visibility 0.6s ease;
+}
+
+#pageLoader.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-content {
+  width: min(380px, 85%);
+}
+
+.loader-icon {
+  font-size: 55px;
+  animation: loaderPulse 1.2s ease-in-out infinite;
+}
+
+#pageLoader .progress {
+  background: #292938;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#loaderProgress {
+  border-radius: 20px;
+  transition: width 0.08s linear;
+}
+
+/* MAINTENANCE */
+
+.maintenance-content {
+  width: min(440px, 90%);
+  background: #1b1b2a;
+  border: 1px solid rgba(47, 170, 117, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+  animation: maintenanceAppear 0.5s ease;
+}
+
+.maintenance-icon {
+  width: 75px;
+  height: 75px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(47, 170, 117, 0.12);
+  border: 1px solid rgba(47, 170, 117, 0.25);
+  color: #55bd94;
+  font-size: 35px;
+}
+
+.maintenance-content h4 {
+  font-size: 19px;
+}
+
+.maintenance-content p {
+  font-size: 13px;
+  line-height: 2;
+}
+
+.maintenance-error {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #242435;
+  border: 1px solid #343449;
+  padding: 12px 16px;
+  border-radius: 9px;
+  color: #aabbb5;
+  font-size: 13px;
+}
+
+.maintenance-error strong {
+  color: #55bd94;
+  font-size: 17px;
+  direction: ltr;
+}
+
+.maintenance-content .btn {
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+@keyframes loaderPulse {
+  50% {
+      transform: scale(1.12);
+      opacity: 0.65;
+  }
+}
+
+@keyframes maintenanceAppear {
+  from {
+      opacity: 0;
+      transform: translateY(15px);
+  }
+
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-icon,
+  .maintenance-content {
+      animation: none;
+  }
+
+  #loaderProgress {
+      transition: none;
+  }
+}
+
 .text-teal{
   --bs-text-opacity: 1;
   color: var(--bs-teal);
