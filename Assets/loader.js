@@ -2,6 +2,8 @@
 // LOADER CONFIGURATION
 // =========================================
 
+const protocol = window.location.protocol;
+
 const LOADER_CONFIG = {
 
     // Enable / Disable maintenance mode
@@ -105,6 +107,11 @@ document.addEventListener("DOMContentLoaded", () => {
             percentage.textContent = "100%";
 
             setTimeout(() => {
+
+                if(protocol==="file:"){
+                    let messagg = "protocol is " + protocol + " and most features will not work! don't even expect them to akhale...";
+                        PrintToast(messagg,10000);
+                }
 
                 loader.classList.add("loader-hidden");
 
