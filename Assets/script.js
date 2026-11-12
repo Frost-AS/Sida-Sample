@@ -1310,3 +1310,5 @@ document.querySelectorAll("#dlmodal .dl-link").forEach((link) => {
       a.click();
     });
   });
+
+  delAllCookies();

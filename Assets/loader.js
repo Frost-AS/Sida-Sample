@@ -16,10 +16,10 @@ const LOADER_CONFIG = {
     errorCode: 528,
 
     // Minimum loading duration (milliseconds)
-    minDuration: 3000,
+    minDuration: 1500,
 
     // Maximum loading duration (milliseconds)
-    maxDuration: 5000,
+    maxDuration: 3500,
 
     // Fade-out delay (milliseconds)
     fadeOutDelay: 300
