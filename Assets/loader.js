@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(protocol==="file:"){
                     let messagg = "protocol is " + protocol + " and most features will not work! don't even expect them to akhale...";
                         PrintToast(messagg,10000);
+                        console.error(messagg);
                 }
 
                 loader.classList.add("loader-hidden");
